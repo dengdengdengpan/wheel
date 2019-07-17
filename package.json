@@ -1,0 +1,23 @@
+{
+  "name": "wheel",
+  "version": "0.0.1",
+  "description": "一个 Vue UI 轮子",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dengdengdengpan/wheel.git"
+  },
+  "keywords": [
+    "Vue",
+    "UI"
+  ],
+  "author": "dengpan0513",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dengdengdengpan/wheel/issues"
+  },
+  "homepage": "https://github.com/dengdengdengpan/wheel#readme"
+}
