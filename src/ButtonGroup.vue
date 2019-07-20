@@ -24,8 +24,11 @@ export default {
   vertical-align: middle;
 
   > .w-button {
-    margin-left: -1px; // 使按钮中处于中间的按钮的左右 border 不会互相重叠
     border-radius: 0;
+
+    &:not(:first-child) { // 修复 w-button-group 中第一个元素的 margin-left: -1px 的问题
+      margin-left: -1px; // 使按钮中处于中间的按钮的左右 border 不会互相重叠
+    }
 
     &:first-child {
       border-top-left-radius: var(--border-radius);
