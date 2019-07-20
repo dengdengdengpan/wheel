@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'Button',
   props: {
     icon: {
       type: String
