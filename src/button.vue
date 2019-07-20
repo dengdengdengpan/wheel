@@ -1,6 +1,7 @@
 <template>
   <button class="w-button" :class="{[`icon-${iconPosition}`]: true}">
-    <w-icon v-if="icon" :name="icon"></w-icon>
+    <w-icon v-if="icon && !loading" class="icon" :name="icon"></w-icon>
+    <w-icon v-if="loading" name="loading" class="icon loading"></w-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -19,12 +20,25 @@ export default {
       validator (value) {
         return value === 'left' || value === 'right'
       } 
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   }
 }
 </script>
 
 <style lang="scss">
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .w-button {
   display: inline-flex;
   justify-content: center;
@@ -69,6 +83,10 @@ export default {
     > .content {
       order: 1;
     }
+  }
+
+  .loading {
+    animation: spin 2s infinite linear;
   }
 }
 </style>
