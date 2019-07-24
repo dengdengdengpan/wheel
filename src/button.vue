@@ -9,8 +9,13 @@
 </template>
 
 <script>
+import Icon from './Icon'
+
 export default {
   name: 'Button',
+  components: {
+    'w-icon': Icon
+  },
   props: {
     icon: {
       type: String

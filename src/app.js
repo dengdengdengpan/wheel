@@ -18,6 +18,7 @@ chai.use(spies)
 const expect = chai.expect
 
 {
+  // 测试 Button 组件含有 icon
   const Constructor = Vue.extend(Button)
   const vm = new Constructor({
     propsData: {
@@ -99,4 +100,6 @@ const expect = chai.expect
   let button = vm.$el
   button.click()
   expect(spy).to.have.been.called()
+  vm.$el.remove()
+  vm.$destroy()
 }
