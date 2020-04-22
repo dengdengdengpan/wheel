@@ -1,10 +1,10 @@
 <template>
   <button class="w-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
-    <w-icon v-if="icon && !loading" class="icon" :name="icon"></w-icon>
-    <w-icon v-if="loading" name="loading" class="icon loading"></w-icon>
-    <div class="content">
+    <w-icon v-if="icon && !loading" class="w-button-icon" :name="icon"></w-icon>
+    <w-icon v-if="loading" name="loading" class="w-button-icon loading"></w-icon>
+    <div class="w-button-text">
       <slot></slot>
-    </div>
+    </div> 
   </button>
 </template>
 
@@ -13,18 +13,17 @@ import WIcon from './WIcon.vue'
 
 export default {
   name: 'WButton',
-  components: {
-    WIcon
-  },
+  components: { WIcon },
   props: {
     icon: {
-      type: String
+      type: String,
+      default: ''
     },
     iconPosition: {
       type: String,
       default: 'left',
       validator (value) {
-        return value === 'left' || value === 'right'
+        return ['left', 'right'].indexOf !== -1
       } 
     },
     loading: {
@@ -59,34 +58,34 @@ export default {
   vertical-align: middle;
 
   &:hover {
-    border-color: var(--border-color-hover);
+    border-color: var(--button-border-color-hover);
   }
 
   &:active {
-    background: var(--button-active-bg);
+    background-color: var(--button-bg-active);
   }
 
   &:focus {
     outline: none
   }
 
-  > .icon {
+  > .w-button-icon {
     order: 1;
     margin-right: .1em;
   }
 
-  > .content {
+  > .w-button-text {
     order: 2; 
   }
 
   &.icon-right {
-    > .icon {
+    > .w-button-icon {
       order: 2;
-      margin-left: .1em;
       margin-right: 0;
+      margin-left: .1em;
     }
 
-    > .content {
+    > .w-button-text {
       order: 1;
     }
   }
