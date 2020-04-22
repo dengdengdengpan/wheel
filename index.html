@@ -12,25 +12,30 @@
         box-sizing: border-box;
       }
       :root {
-        --button-height: 32px;
-        --border-color: #999;
-        --border-radius: 4px;
-        --border-color-hover: #666;
-        --color: #333;
         --font-size: 14px;
+        --color: #333;
+        --button-height: 32px;
+        --button-border-radius: 4px;
+        --button-border-color: #999;
+        --button-border-color-hover: #666;
         --button-bg: #fff;
-        --button-active-bg: #eee;
+        --button-bg-active: #eee;
       }
       body {
-        margin: 20px;
+        font-size: var(--font-size)
+      }
+    </style>
+    <style>
+      #app {
+        margin: 20px 0 0 20px;
       }
     </style>
   </head>
   <body>
     <div id="app">
         <w-button>按钮</w-button>
-        <w-button icon="setting">按钮</w-button>
-        <w-button icon="setting" icon-position="right" :loading="true">按钮</w-button>
+        <w-button icon="setting">设置</w-button>
+        <w-button icon="download" icon-position="right" :loading="true">下载</w-button>
         <w-button :loading="true">加载中</w-button>
         <w-button-group>
           <w-button icon="left">上一页</w-button>

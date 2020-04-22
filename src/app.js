@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import Button from './Button'
-import Icon from './Icon'
-import ButtonGroup from './ButtonGroup'
+import WButton from './components/WButton.vue'
+import WIcon from './components/WIcon.vue'
+import WButtonGroup from './components/WButtonGroup.vue'
 
-Vue.component('w-button', Button)
-Vue.component('w-icon', Icon)
-Vue.component('w-button-group', ButtonGroup)
+Vue.component('w-button', WButton)
+Vue.component('w-icon', WIcon)
+Vue.component('w-button-group', WButtonGroup)
 
 new Vue({
   el: '#app'
@@ -18,8 +18,8 @@ chai.use(spies)
 const expect = chai.expect
 
 {
-  // 测试 Button 组件含有 icon
-  const Constructor = Vue.extend(Button)
+  // 测试 WButton 组件含有 icon
+  const Constructor = Vue.extend(WButton)
   const vm = new Constructor({
     propsData: {
       icon: 'setting'
@@ -34,7 +34,7 @@ const expect = chai.expect
 }
 
 {
-  const Constructor = Vue.extend(Button)
+  const Constructor = Vue.extend(WButton)
   const vm = new Constructor({
     propsData: {
       icon: 'setting',
@@ -52,7 +52,7 @@ const expect = chai.expect
 {
   const div = document.createElement('div')
   document.body.appendChild(div)
-  const Constructor = Vue.extend(Button)
+  const Constructor = Vue.extend(WButton)
   const vm = new Constructor({
     propsData: {
       icon: 'setting'
@@ -69,7 +69,7 @@ const expect = chai.expect
 {
   const div = document.createElement('div')
   document.body.appendChild(div)
-  const Constructor = Vue.extend(Button)
+  const Constructor = Vue.extend(WButton)
   const vm = new Constructor({
     propsData: {
       icon: 'setting',
@@ -85,7 +85,7 @@ const expect = chai.expect
 }
 
 {
-  const Constructor = Vue.extend(Button)
+  const Constructor = Vue.extend(WButton)
   const vm = new Constructor({
     propsData: {
       icon: 'setting'

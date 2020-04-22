@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'WIcon',
   props: {
     name: {
       type: String

@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import Icon from './Icon'
+import WIcon from './WIcon.vue'
 
 export default {
-  name: 'Button',
+  name: 'WButton',
   components: {
-    'w-icon': Icon
+    WIcon
   },
   props: {
     icon: {
@@ -51,8 +51,8 @@ export default {
   align-items: center;
   height: var(--button-height);
   padding: 0 1em;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
+  border: 1px solid var(--button-border-color);
+  border-radius: var(--button-border-radius);
   background-color: var(--button-bg);
   font-size: var(--font-size);
   // 要使内联元素垂直方向对齐的方式
