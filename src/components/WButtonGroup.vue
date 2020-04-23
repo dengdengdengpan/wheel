@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .w-button-group {
   display: inline-flex;
   vertical-align: middle;

@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @keyframes spin {
   from {
     transform: rotate(0deg);
