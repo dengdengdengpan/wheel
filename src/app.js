@@ -8,7 +8,12 @@ Vue.component('w-icon', WIcon)
 Vue.component('w-button-group', WButtonGroup)
 
 new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    loading: true,
+    loadingSetting: false,
+    loadingDownload: true
+  }
 })
 
 // 单元测试

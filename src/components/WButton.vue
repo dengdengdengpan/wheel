@@ -1,7 +1,7 @@
 <template>
   <button class="w-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
     <w-icon v-if="icon && !loading" class="w-button-icon" :name="icon"></w-icon>
-    <w-icon v-if="loading" name="loading" class="w-button-icon loading"></w-icon>
+    <w-icon v-if="loading" class="w-button-icon w-button-loading" name="loading"></w-icon>
     <div class="w-button-text">
       <slot></slot>
     </div> 
@@ -90,7 +90,7 @@ export default {
     }
   }
 
-  .loading {
+  .w-button-loading {
     animation: spin 2s infinite linear;
   }
 }

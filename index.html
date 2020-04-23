@@ -33,9 +33,9 @@
   </head>
   <body>
     <div id="app">
-        <w-button>按钮</w-button>
-        <w-button icon="setting">设置</w-button>
-        <w-button icon="download" icon-position="right" :loading="true">下载</w-button>
+        <w-button :loading="loading" @click="loading = !loading">按钮</w-button>
+        <w-button icon="loadingSetting" @click="loadingSetting = !loadingSetting">设置</w-button>
+        <w-button icon="download" icon-position="right" :loading="loadingDownload" @click="loadingDownload = ! loadingDownload">下载</w-button>
         <w-button :loading="true">加载中</w-button>
         <w-button-group>
           <w-button icon="left">上一页</w-button>
