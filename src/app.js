@@ -33,7 +33,7 @@ const expect = chai.expect
   vm.$mount()
   const useElement = vm.$el.querySelector('use')
   const href = useElement.getAttribute('xlink:href')
-  expect(href).to.eq('#i-setting')
+  expect(href).to.eq('#icon-setting')
   vm.$el.remove()
   vm.$destroy()
 }
@@ -49,7 +49,7 @@ const expect = chai.expect
   vm.$mount()
   const useElement = vm.$el.querySelector('use')
   const href = useElement.getAttribute('xlink:href')
-  expect(href).to.eq('#i-loading')
+  expect(href).to.eq('#icon-loading')
   vm.$el.remove()
   vm.$destroy()
 }
