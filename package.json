@@ -1,5 +1,5 @@
 {
-  "name": "wheel",
+  "name": "dp-wheel",
   "version": "0.0.1",
   "description": "一个 Vue UI 轮子",
   "main": "index.js",
