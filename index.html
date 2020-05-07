@@ -33,16 +33,19 @@
   </head>
   <body>
     <div id="app">
-        <w-button :loading="loading" @click="loading = !loading">按钮</w-button>
-        <w-button icon="setting" @click="loadingSetting = !loadingSetting">设置</w-button>
-        <w-button icon="download" icon-position="right" :loading="loadingDownload" @click="loadingDownload = ! loadingDownload">下载</w-button>
-        <w-button :loading="true">加载中</w-button>
-        <w-button-group>
-          <w-button icon="left">上一页</w-button>
-          <w-button>更多</w-button>
-          <w-button>更多</w-button>
-          <w-button icon="right" icon-position="right">下一页</w-button>
-        </w-button-group>
+      <w-input value="前端"></w-input>
+      <w-input value="HTML" disabled></w-input>
+      <w-input value="CSS" readonly></w-input>
+      <w-button :loading="loading" @click="loading = !loading">按钮</w-button>
+      <w-button icon="setting" @click="loadingSetting = !loadingSetting">设置</w-button>
+      <w-button icon="download" icon-position="right" :loading="loadingDownload" @click="loadingDownload = ! loadingDownload">下载</w-button>
+      <w-button :loading="true">加载中</w-button>
+      <w-button-group>
+        <w-button icon="left">上一页</w-button>
+        <w-button>更多</w-button>
+        <w-button>更多</w-button>
+        <w-button icon="right" icon-position="right">下一页</w-button>
+      </w-button-group>
     </div>
     <script src="./src/app.js"></script>
     <script src="///at.alicdn.com/t/font_1305117_zhjdjl69u9b.js"></script>
