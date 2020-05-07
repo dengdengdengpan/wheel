@@ -1,12 +1,19 @@
 <template>
-  <div class="input-wrapper">
+  <div class="input-wrapper" :class="{ error }">
     <input :value="value" :disabled="disabled" :readonly="readonly" type="text">
+    <template v-if="error">
+      <w-icon name="error" class="icon-error"></w-icon>
+      <span class="error-message">{{ error }}</span>
+    </template>
   </div>
 </template>
 
 <script>
+import WIcon from './WIcon.vue'
+
 export default {
   name: 'WInput',
+  components: { WIcon },
   props: {
     value: {
       type: String
@@ -18,6 +25,9 @@ export default {
     readonly: {
       type: Boolean,
       default: false
+    },
+    error: {
+      type: String
     }
   }
 }
@@ -31,11 +41,16 @@ $border-radius: 4px;
 $font-size: 14px;
 $color: #111;
 $box-shadow-color: rgba(0, 0, 0, .5);
+$error: #F1453D;
 
 .input-wrapper {
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
   font-size: $font-size;
+
+  > :not(:last-child) {
+    margin-right: 0.4em;
+  }
 
   > input {
     height: $height;
@@ -60,6 +75,20 @@ $box-shadow-color: rgba(0, 0, 0, .5);
       color: #c0c4cc;
       cursor: not-allowed;
     }
+  }
+
+  &.error {
+    > input {
+      border-color: $error;
+    }
+  }
+
+  .icon-error {
+    fill: $error;
+  }
+
+  .error-message {
+    color: $error;
   }
 }
 </style>
