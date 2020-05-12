@@ -15,5 +15,13 @@ new Vue({
     loading: true,
     loadingSetting: false,
     loadingDownload: true
+  },
+  methods: {
+    handleInput (event) {
+      console.log('触发了 input 事件', event)
+    },
+    handleChange (event) {
+      console.log('触发了 change 事件', event)
+    }
   }
 })
