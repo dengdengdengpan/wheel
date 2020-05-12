@@ -14,7 +14,8 @@ new Vue({
   data: {
     loading: true,
     loadingSetting: false,
-    loadingDownload: true
+    loadingDownload: true,
+    message: ''
   },
   methods: {
     handleInput (event) {

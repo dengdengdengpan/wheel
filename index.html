@@ -33,7 +33,8 @@
   </head>
   <body>
     <div id="app">
-      <w-input value="前端"  @input="handleInput" @change="handleChange"></w-input>
+      <p>{{ message }}</p>
+      <w-input v-model="message"  @input="handleInput" @change="handleChange"></w-input>
       <w-input value="HTML" disabled></w-input>
       <w-input value="CSS" readonly></w-input>
       <w-input value="JavaScript" error="报错了"></w-input>
