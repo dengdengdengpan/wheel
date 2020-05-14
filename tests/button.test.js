@@ -7,7 +7,7 @@ Vue.config.devtools = false
 const expect = chai.expect
 
 describe('WButton', () => {
-  it('存在.', () => {
+  it('存在', () => {
     expect(WButton).to.be.exist
   })
 
