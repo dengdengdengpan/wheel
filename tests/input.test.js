@@ -12,45 +12,44 @@ describe('WInput', () => {
   })
 
   describe('props', () => {
+    const Constructor = Vue.extend(WInput)
+    let vm
+    afterEach(() =>{
+      vm.$destroy()
+    })
+
     it('可以设置 value', () => {
-      const Constructor = Vue.extend(WInput)
-      const vm = new Constructor({
+      vm = new Constructor({
         propsData: {
           value: 'test'
         }
       }).$mount()
       const inputElement = vm.$el.querySelector('input')
       expect(inputElement.value).to.equal('test')
-      vm.$destroy()
     })
   
     it('可以设置 disabled', () => {
-      const Constructor = Vue.extend(WInput)
-      const vm = new Constructor({
+      vm = new Constructor({
         propsData: {
           disabled: true
         }
       }).$mount()
       const inputElement = vm.$el.querySelector('input')
       expect(inputElement.disabled).to.equal(true)
-      vm.$destroy()
     })
   
     it('可以设置 readonly', () => {
-      const Constructor = Vue.extend(WInput)
-      const vm = new Constructor({
+      vm = new Constructor({
         propsData: {
           readonly: true
         }
       }).$mount()
       const inputElement = vm.$el.querySelector('input')
       expect(inputElement.readOnly).to.equal(true)
-      vm.$destroy()
     })
   
     it('可以设置报错信息', () => {
-      const Constructor = Vue.extend(WInput)
-      const vm = new Constructor({
+      vm = new Constructor({
         propsData: {
           error: '报错了'
         }
@@ -63,58 +62,25 @@ describe('WInput', () => {
   })
 
   describe('事件', () => {
-    it ('支持 input 事件', () => {
-      const Constructor = Vue.extend(WInput)
-      const vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      vm.$on('input', callback)
-      // 触发 input 事件
-      const event = new Event('input')
-      Object.defineProperty(event,  'target', { value: {value: 'test'}, enumerable: true })
-      const inputElement = vm.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      // 期待 input 事件触发时 callback 函数被调用且第一个参数是 event
-      expect(callback).to.have.been.calledWith('test')
+    const Constructor = Vue.extend(WInput)
+    let vm
+    afterEach(() =>{
       vm.$destroy()
     })
-  })
 
-  it ('支持 change 事件', () => {
-    const Constructor = Vue.extend(WInput)
-    const vm = new Constructor({}).$mount()
-    const callback = sinon.fake()
-    vm.$on('change', callback)
-    const event = new Event('change')
-    Object.defineProperty(event,  'target', { value: {value: 'test'}, enumerable: true })
-    const inputElement = vm.$el.querySelector('input')
-    inputElement.dispatchEvent(event)
-    expect(callback).to.have.been.calledWith('test')
-    vm.$destroy()
-  })
-
-  it ('支持 focus 事件', () => {
-    const Constructor = Vue.extend(WInput)
-    const vm = new Constructor({}).$mount()
-    const callback = sinon.fake()
-    vm.$on('focus', callback)
-    const event = new Event('focus')
-    Object.defineProperty(event,  'target', { value: {value: 'test'}, enumerable: true })
-    const inputElement = vm.$el.querySelector('input')
-    inputElement.dispatchEvent(event)
-    expect(callback).to.have.been.calledWith('test')
-    vm.$destroy()
-  })
-
-  it ('支持 blur 事件', () => {
-    const Constructor = Vue.extend(WInput)
-    const vm = new Constructor({}).$mount()
-    const callback = sinon.fake()
-    vm.$on('blur', callback)
-    const event = new Event('blur')
-    Object.defineProperty(event,  'target', { value: {value: 'test'}, enumerable: true })
-    const inputElement = vm.$el.querySelector('input')
-    inputElement.dispatchEvent(event)
-    expect(callback).to.have.been.calledWith('test')
-    vm.$destroy()
+    it ('支持 input/change/focus/blur 事件', () => {
+      ['input', 'change', 'focus', 'blur'].forEach(eventName => {
+        vm = new Constructor({}).$mount()
+        const callback = sinon.fake()
+        vm.$on(eventName, callback)
+        // 触发 input 元素事件的方法
+        const event = new Event(eventName)
+        Object.defineProperty(event,  'target', { value: {value: 'test'}, enumerable: true })
+        const inputElement = vm.$el.querySelector('input')
+        inputElement.dispatchEvent(event)
+        // 期待事件被触发时 callback 函数被调用且第一个参数是 $event.target.value
+        expect(callback).to.have.been.calledWith('test')
+      })
+    })
   })
 })
