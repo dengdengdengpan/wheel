@@ -52,6 +52,19 @@
         <w-col :span="2">1</w-col>
         <w-col :span="22">2</w-col>
       </w-row>
+      <w-row>
+        <w-col :span="2">1</w-col>
+        <w-col :span="19" :offset="3">2</w-col>
+      </w-row>
+      <w-row>
+        <w-col :span="1">1</w-col>
+        <w-col :span="22" :offset="1">2</w-col>
+      </w-row>
+      <w-row>
+        <w-col :span="2">1</w-col>
+        <w-col :span="8" :offset="2">2</w-col>
+        <w-col :span="7" :offset="5">3</w-col>
+      </w-row>
       <p>{{ message }}</p>
       <w-input v-model="message"  @input="handleInput" @change="handleChange"></w-input>
       <w-input value="HTML" disabled></w-input>

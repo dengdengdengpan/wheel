@@ -1,7 +1,7 @@
 <template>
   <div 
     class="w-col" 
-    :class="[`w-col-${span}`]"
+    :class="[span && `w-col-${span}`, offset && `offset-${offset}`]"
   >
     <slot></slot>
   </div>
@@ -12,6 +12,9 @@ export default {
   name: 'WCol',
   props: {
     span: {
+      type: Number
+    },
+    offset: {
       type: Number
     }
   },
@@ -35,6 +38,13 @@ export default {
     &.#{$class-prefix}#{$n} {
       flex: 0 0 ($n / 24) * 100%;
       max-width: ($n / 24) * 100%;
+    }
+  }
+
+  $class-prefix: offset-;
+  @for $n from 1 through 24 {
+    &.#{$class-prefix}#{$n} {
+      margin-left: ($n / 24) * 100%;
     }
   }
 }
