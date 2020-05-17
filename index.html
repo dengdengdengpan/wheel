@@ -27,12 +27,31 @@
     </style>
     <style>
       #app {
-        margin: 20px 0 0 20px;
+        margin: 20px 20px 0 20px;
       }
     </style>
   </head>
   <body>
     <div id="app">
+      <w-row>
+        <w-col :span="12">1</w-col>
+        <w-col :span="12">2</w-col>
+      </w-row>
+      <w-row>
+        <w-col :span="8">1</w-col>
+        <w-col :span="8">2</w-col>
+        <w-col :span="8">3</w-col>
+      </w-row>
+      <w-row>
+        <w-col :span="6">1</w-col>
+        <w-col :span="6">2</w-col>
+        <w-col :span="6">3</w-col>
+        <w-col :span="6">4</w-col>
+      </w-row>
+      <w-row>
+        <w-col :span="2">1</w-col>
+        <w-col :span="22">2</w-col>
+      </w-row>
       <p>{{ message }}</p>
       <w-input v-model="message"  @input="handleInput" @change="handleChange"></w-input>
       <w-input value="HTML" disabled></w-input>
