@@ -33,39 +33,69 @@
   </head>
   <body>
     <div id="app">
-      <w-row>
-        <w-col :span="12">1</w-col>
-        <w-col :span="12">2</w-col>
-      </w-row>
-      <w-row>
-        <w-col :span="8">1</w-col>
-        <w-col :span="8">2</w-col>
-        <w-col :span="8">3</w-col>
-      </w-row>
-      <w-row>
-        <w-col :span="6">1</w-col>
-        <w-col :span="6">2</w-col>
-        <w-col :span="6">3</w-col>
-        <w-col :span="6">4</w-col>
-      </w-row>
-      <w-row>
-        <w-col :span="2">1</w-col>
-        <w-col :span="22">2</w-col>
-      </w-row>
-      <w-row>
-        <w-col :span="2">1</w-col>
-        <w-col :span="19" :offset="3">2</w-col>
-      </w-row>
-      <w-row>
-        <w-col :span="1">1</w-col>
-        <w-col :span="22" :offset="1">2</w-col>
-      </w-row>
-      <w-row>
-        <w-col :span="2">1</w-col>
-        <w-col :span="8" :offset="2">2</w-col>
-        <w-col :span="7" :offset="5">3</w-col>
-      </w-row>
-      <p>{{ message }}</p>
+      <div class="grid-wrapper" style="background-color: yellow;">
+        <w-row :gutter="32">
+          <w-col :span="12">
+            <div style="background-color: #2092FF;">col-12</div>
+          </w-col>
+          <w-col :span="12"> 
+            <div style="background-color: #2092FF;">col-12</div>
+          </w-col>
+        </w-row>
+        <w-row :gutter="10">
+          <w-col :span="8">
+            <div style="background-color: #2092FF;">col-8</div>
+          </w-col>
+          <w-col :span="8">
+            <div style="background-color: #2092FF;">col-8</div>
+          </w-col>
+          <w-col :span="8">
+            <div style="background-color: #2092FF;">col-8</div>
+          </w-col>
+        </w-row>
+        <w-row :gutter="20">
+          <w-col :span="6">
+            <div style="background-color: #2092FF;">col-6</div>
+          </w-col>
+          <w-col :span="6">
+            <div style="background-color: #2092FF;">col-6</div>
+          </w-col>
+          <w-col :span="6">
+            <div style="background-color: #2092FF;">col-6</div>
+          </w-col>
+          <w-col :span="6">
+            <div style="background-color: #2092FF;">col-6</div>
+          </w-col>
+        </w-row>
+        <w-row :gutter="36">
+          <w-col :span="2">
+            <div style="background-color: #2092FF;">col-2</div>
+          </w-col>
+          <w-col :span="22">
+            <div style="background-color: #2092FF;">col-22</div>
+          </w-col>
+        </w-row>
+        <w-row>
+          <w-col :span="2">
+            <div style="background-color: #2092FF;">offset-0</div>
+          </w-col>
+          <w-col :span="19" :offset="3">
+            <div style="background-color: #2092FF;">offset-3</div>
+          </w-col>
+        </w-row>
+        <w-row :gutter="30">
+          <w-col :span="2">
+            <div style="background-color: #2092FF;">offset-0</div>
+          </w-col>
+          <w-col :span="8" :offset="2">
+            <div style="background-color: #2092FF;">offset-2</div>
+          </w-col>
+          <w-col :span="7" :offset="5">
+            <div style="background-color: #2092FF;">offset-5</div>
+          </w-col>
+        </w-row>
+      </div>
+      <span>这是 message 的值为：{{ message }}</审判>
       <w-input v-model="message"  @input="handleInput" @change="handleChange"></w-input>
       <w-input value="HTML" disabled></w-input>
       <w-input value="CSS" readonly></w-input>

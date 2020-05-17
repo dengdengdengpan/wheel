@@ -1,7 +1,8 @@
 <template>
   <div 
     class="w-col" 
-    :class="[span && `w-col-${span}`, offset && `offset-${offset}`]"
+    :class="[span && `w-col-${span}`, offset && `w-offset-${offset}`]"
+    :style="{ paddingLeft: gutter / 2 + 'px', paddingRight: gutter / 2 + 'px' }"
   >
     <slot></slot>
   </div>
@@ -20,9 +21,9 @@ export default {
   },
   data () {
     return {
-      //
+      gutter: 0
     }
-  },
+  }
 }
 </script>
 
@@ -30,8 +31,6 @@ export default {
 .w-col {
   max-width: 100%;
   min-height: 36px;
-  border: 1px solid red;
-  background-color: skyblue;
 
   $class-prefix: w-col-;
   @for $n from 1 through 24 {
@@ -41,7 +40,7 @@ export default {
     }
   }
 
-  $class-prefix: offset-;
+  $class-prefix: w-offset-;
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {
       margin-left: ($n / 24) * 100%;

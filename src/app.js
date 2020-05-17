@@ -19,7 +19,7 @@ new Vue({
     loading: true,
     loadingSetting: false,
     loadingDownload: true,
-    message: ''
+    message: 'Vue'
   },
   methods: {
     handleInput (event) {
