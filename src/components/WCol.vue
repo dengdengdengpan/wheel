@@ -1,9 +1,5 @@
 <template>
-  <div 
-    class="w-col" 
-    :class="[span && `w-col-${span}`, offset && `w-offset-${offset}`]"
-    :style="{ paddingLeft: gutter / 2 + 'px', paddingRight: gutter / 2 + 'px' }"
-  >
+  <div class="w-col" :class="colClass" :style="colStyle">
     <slot></slot>
   </div>
 </template>
@@ -22,6 +18,22 @@ export default {
   data () {
     return {
       gutter: 0
+    }
+  },
+  computed: {
+    colClass () {
+      const { span, offset } = this
+      return [
+        span && `w-col-${span}`,
+        offset && `w-offset-${offset}`
+      ]
+    },
+    colStyle () {
+      const { gutter } = this
+      return { 
+        paddingLeft: (gutter / 2) + 'px', 
+        paddingRight: (gutter / 2) + 'px' 
+      }
     }
   }
 }
