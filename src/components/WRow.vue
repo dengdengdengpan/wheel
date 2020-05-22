@@ -16,20 +16,30 @@ export default {
       validator (value) {
         return ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly'].includes(value)
       }
+    },
+    align: {
+      type: String,
+      validator (value) {
+        return ['top', 'middle', 'bottom'].includes(value)
+      }
     }
   },
   computed: {
     rowStyle () {
       const { gutter } = this
-      return {
-        marginLeft: (-gutter / 2) + 'px',
-        marginRight: (-gutter / 2) + 'px'
+      if (gutter) {
+        return {
+          marginLeft: (-gutter / 2) + 'px',
+          marginRight: (-gutter / 2) + 'px'
+        }
       }
+      
     },
     rowClass () {
-      const { justify } = this
+      const { justify, align } = this
       return [
-        justify && `w-row-${justify}`
+        justify && `w-row-${justify}`,
+        align && `w-row-${align}`
       ]
     }
   },
@@ -70,6 +80,18 @@ export default {
 
   &.w-row-space-evenly {
     justify-content: space-evenly;
+  }
+
+  &.w-row-top {
+    align-items: flex-start;
+  }
+
+  &.w-row-middle {
+    align-items: center;
+  }
+
+  &.w-row-bottom {
+    align-items: flex-end;
   }
 }
 </style>
