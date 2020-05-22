@@ -12,7 +12,7 @@ describe('WButton', () => {
   })
 
   describe('props', () => {
-    const Constructor = Vue.extend(WInput)
+    const Constructor = Vue.extend(WButton)
     let vm
     afterEach(() =>{
       vm.$destroy()

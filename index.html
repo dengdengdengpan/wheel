@@ -29,11 +29,14 @@
       #app {
         margin: 20px 20px 0 20px;
       }
+      .grid-wrapper .w-row {
+        background-color: rgba(128, 128, 128, 0.08);
+      }
     </style>
   </head>
   <body>
     <div id="app">
-      <div class="grid-wrapper" style="background-color: yellow;">
+      <div class="grid-wrapper" style="">
         <w-row :gutter="10" justify="space-around">
           <w-col :span="3">
             <div style="background-color: #2092FF;">col-8</div>
