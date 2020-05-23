@@ -44,57 +44,24 @@
           <w-col :span="3" :order="1">
             <div style="height: 80px; background-color: #2092FF;">222</div>
           </w-col>
-          <w-col :span="3" :ordere="-1">
+          <w-col :span="3" :ordere="11">
             <div style="height: 110px; background-color: #2092FF;">333</div>
           </w-col>
         </w-row>
         <w-row :gutter="10" justify="space-evenly">
-          <w-col :span="3">
-            <div style="background-color: #2092FF;">col-8</div>
+          <w-col :span="12" :xs="2" :sm="4" :md="6" :lg="8" :xl="10" :xxl="12">
+            <div style="background-color: #2092FF;">111</div>
           </w-col>
-          <w-col :span="3">
-            <div style="background-color: #2092FF;">col-8</div>
-          </w-col>
-          <w-col :span="3">
-            <div style="background-color: #2092FF;">col-8</div>
+          <w-col :span="12" :xs="22" :sm="20" :md="18" :lg="16" :xl="14" :xxl="12">
+            <div style="background-color: #FF4D4F;">222</div>
           </w-col>
         </w-row>
-        <w-row :gutter="10" justify="space-between">
-          <w-col :span="3">
-            <div style="background-color: #2092FF;">col-8</div>
+        <w-row :gutter="10" justify="space-evenly">
+          <w-col :xs="{ span: 21, order: 1 }" :sm="{ span: 18 }" :md="{ span: 15 }" :lg="{ span: 12 }" :xl="{ span:9 }" :xxl="{ span: 6 }">
+            <div style="background-color: #FF4D4F;">111</div>
           </w-col>
-          <w-col :span="3">
-            <div style="background-color: #2092FF;">col-8</div>
-          </w-col>
-          <w-col :span="3">
-            <div style="background-color: #2092FF;">col-8</div>
-          </w-col>
-        </w-row>
-        <w-row :gutter="36">
-          <w-col :span="2">
-            <div style="background-color: #2092FF;">col-2</div>
-          </w-col>
-          <w-col :span="22">
-            <div style="background-color: #2092FF;">col-22</div>
-          </w-col>
-        </w-row>
-        <w-row>
-          <w-col :span="2">
-            <div style="background-color: #2092FF;">offset-0</div>
-          </w-col>
-          <w-col :span="19" :offset="3">
-            <div style="background-color: #2092FF;">offset-3</div>
-          </w-col>
-        </w-row>
-        <w-row :gutter="30">
-          <w-col :span="2">
-            <div style="background-color: #2092FF;">offset-0</div>
-          </w-col>
-          <w-col :span="8" :offset="2">
-            <div style="background-color: #2092FF;">offset-2</div>
-          </w-col>
-          <w-col :span="7" :offset="5">
-            <div style="background-color: #2092FF;">offset-5</div>
+          <w-col :xs="{ span: 2, offset: 1 }" :sm="{ span: 4, offset: 2 }" :md="{ span: 6, offset: 3 }" :lg="{ span: 8, offset: 4 }" :xl="{span: 10, offset: 5 }" :xxl="{ span: 12, offset: 6 }">
+            <div style="background-color: #2092FF;">222</div>
           </w-col>
         </w-row>
       </div>
