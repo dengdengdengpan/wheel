@@ -13,6 +13,9 @@ export default {
     },
     offset: {
       type: Number
+    },
+    order: {
+      type: Number
     }
   },
   data () {
@@ -29,10 +32,11 @@ export default {
       ]
     },
     colStyle () {
-      const { gutter } = this
+      const { gutter, order } = this
       return { 
-        paddingLeft: (gutter / 2) + 'px', 
-        paddingRight: (gutter / 2) + 'px' 
+        paddingLeft: (gutter / 2) + 'px',
+        paddingRight: (gutter / 2) + 'px',
+        order: order
       }
     }
   }

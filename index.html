@@ -37,15 +37,15 @@
   <body>
     <div id="app">
       <div class="grid-wrapper">
-        <w-row :gutter="10" justify="space-around" align-items="bottom">
-          <w-col :span="3">
-            <div style="height: 50px; background-color: #2092FF;">col-8</div>
+        <w-row :gutter="10" justify="space-around" align="bottom">
+          <w-col :span="3" :order="2">
+            <div style="height: 50px; background-color: #2092FF;">1111</div>
           </w-col>
-          <w-col :span="3">
-            <div style="height: 80px; background-color: #2092FF;">col-8</div>
+          <w-col :span="3" :order="1">
+            <div style="height: 80px; background-color: #2092FF;">222</div>
           </w-col>
-          <w-col :span="3">
-            <div style="height: 110px; background-color: #2092FF;">col-8</div>
+          <w-col :span="3" :ordere="-1">
+            <div style="height: 110px; background-color: #2092FF;">333</div>
           </w-col>
         </w-row>
         <w-row :gutter="10" justify="space-evenly">
