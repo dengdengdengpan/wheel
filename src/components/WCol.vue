@@ -65,20 +65,19 @@ export default {
   },
   computed: {
     colClass () {
-      const { span, offset, xs, sm, md, lg, xl, xxl } = this
+      const { span, offset, order, xs, sm, md, lg, xl, xxl } = this
       return [
-        span && `w-col-${span}`,
+        span === 0 ? 'w-col-0' : (span && `w-col-${span}`),
         offset && `w-col-offset-${offset}`,
         ... this.createSizeClass({ xs, sm, md, lg, xl, xxl })
       ]
     },
     colStyle () {
-      const { gutter, order } = this
+      const { gutter } = this
       const paddingGutter = (gutter / 2) + 'px'
       return { 
         paddingLeft: paddingGutter,
-        paddingRight: paddingGutter,
-        order: order
+        paddingRight: paddingGutter
       }
     }
   },
@@ -114,119 +113,133 @@ export default {
 .w-col {
   max-width: 100%;
   min-height: 36px;
+}
 
-  $class-prefix: w-col-;
+.w-col-0, .w-col-xs-0 {
+  display: none;
+}
+
+$class-prefix: w-col-;
+@for $n from 1 through 24 {
+  .#{$class-prefix}#{$n} {
+    display: block;
+    flex: 0 0 ($n / 24) * 100%;
+    max-width: ($n / 24) * 100%;
+  }
+}
+
+$class-prefix: w-col-offset-;
+@for $n from 1 through 24 {
+  .#{$class-prefix}#{$n} {
+    margin-left: ($n / 24) * 100%;
+  }
+}
+
+$class-prefix: w-col-xs-;
+@for $n from 1 through 24 {
+  .#{$class-prefix}#{$n} {
+    display: block;
+    flex: 0 0 ($n / 24) * 100%;
+    max-width: ($n / 24) * 100%;
+  }
+}
+
+$class-prefix: w-col-xs-offset-;
+@for $n from 1 through 24 {
+  .#{$class-prefix}#{$n} {
+    margin-left: ($n / 24) * 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .w-col-sm-0 {
+    display: none;
+  }
+  $class-prefix: w-col-sm-;
   @for $n from 1 through 24 {
-    &.#{$class-prefix}#{$n} {
+    .#{$class-prefix}#{$n} {
+      display: block;
       flex: 0 0 ($n / 24) * 100%;
       max-width: ($n / 24) * 100%;
     }
   }
 
-  $class-prefix: w-col-offset-;
+  $class-prefix: w-col-sm-offset-;
   @for $n from 1 through 24 {
-    &.#{$class-prefix}#{$n} {
+    .#{$class-prefix}#{$n} {
       margin-left: ($n / 24) * 100%;
     }
   }
+}
 
-  $class-prefix: w-col-xs-;
+@media (min-width: 768px) {
+  $class-prefix: w-col-md-;
   @for $n from 1 through 24 {
-    &.#{$class-prefix}#{$n} {
+    .#{$class-prefix}#{$n} {
+      display: block;
       flex: 0 0 ($n / 24) * 100%;
       max-width: ($n / 24) * 100%;
     }
   }
 
-  $class-prefix: w-col-xs-offset-;
+  $class-prefix: w-col-md-offset-;
   @for $n from 1 through 24 {
-    &.#{$class-prefix}#{$n} {
+    .#{$class-prefix}#{$n} {
       margin-left: ($n / 24) * 100%;
     }
   }
+}
 
-  @media (min-width: 576px) {
-    $class-prefix: w-col-sm-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        flex: 0 0 ($n / 24) * 100%;
-        max-width: ($n / 24) * 100%;
-      }
-    }
-
-    $class-prefix: w-col-sm-offset-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
-      }
+@media (min-width: 992px) {
+  $class-prefix: w-col-lg-;
+  @for $n from 1 through 24 {
+    .#{$class-prefix}#{$n} {
+      display: block;
+      flex: 0 0 ($n / 24) * 100%;
+      max-width: ($n / 24) * 100%;
     }
   }
 
-  @media (min-width: 768px) {
-    $class-prefix: w-col-md-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        flex: 0 0 ($n / 24) * 100%;
-        max-width: ($n / 24) * 100%;
-      }
+  $class-prefix: w-col-lg-offset-;
+  @for $n from 1 through 24 {
+    .#{$class-prefix}#{$n} {
+      margin-left: ($n / 24) * 100%;
     }
+  }
+}
 
-    $class-prefix: w-col-md-offset-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
-      }
+@media (min-width: 1200px) {
+  $class-prefix: w-col-xl-;
+  @for $n from 1 through 24 {
+    .#{$class-prefix}#{$n} {
+      display: block;
+      flex: 0 0 ($n / 24) * 100%;
+      max-width: ($n / 24) * 100%;
     }
   }
 
-  @media (min-width: 992px) {
-    $class-prefix: w-col-lg-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        flex: 0 0 ($n / 24) * 100%;
-        max-width: ($n / 24) * 100%;
-      }
+  $class-prefix: w-col-xl-offset-;
+  @for $n from 1 through 24 {
+    .#{$class-prefix}#{$n} {
+      margin-left: ($n / 24) * 100%;
     }
+  }
+}
 
-    $class-prefix: w-col-lg-offset-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
-      }
+@media (min-width: 1600px) {
+  $class-prefix: w-col-xxl-;
+  @for $n from 1 through 24 {
+    .#{$class-prefix}#{$n} {
+      display: block;
+      flex: 0 0 ($n / 24) * 100%;
+      max-width: ($n / 24) * 100%;
     }
   }
 
-  @media (min-width: 1200px) {
-    $class-prefix: w-col-xl-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        flex: 0 0 ($n / 24) * 100%;
-        max-width: ($n / 24) * 100%;
-      }
-    }
-
-    $class-prefix: w-col-xl-offset-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
-      }
-    }
-  }
-
-  @media (min-width: 1600px) {
-    $class-prefix: w-col-xxl-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        flex: 0 0 ($n / 24) * 100%;
-        max-width: ($n / 24) * 100%;
-      }
-    }
-
-    $class-prefix: w-col-xxl-offset-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
-      }
+  $class-prefix: w-col-xxl-offset-;
+  @for $n from 1 through 24 {
+    .#{$class-prefix}#{$n} {
+      margin-left: ($n / 24) * 100%;
     }
   }
 }
