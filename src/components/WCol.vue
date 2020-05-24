@@ -30,9 +30,6 @@ export default {
     offset: {
       type: Number
     },
-    order: {
-      type: Number
-    },
     xs: {
       type: [Number, Object],
       validator
@@ -65,7 +62,7 @@ export default {
   },
   computed: {
     colClass () {
-      const { span, offset, order, xs, sm, md, lg, xl, xxl } = this
+      const { span, offset, xs, sm, md, lg, xl, xxl } = this
       return [
         span === 0 ? 'w-col-0' : (span && `w-col-${span}`),
         offset && `w-col-offset-${offset}`,
