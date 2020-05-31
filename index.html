@@ -32,10 +32,50 @@
       .grid-wrapper .w-row {
         background-color: rgba(128, 128, 128, 0.08);
       }
+      .test-layout {
+        margin-bottom: 48px;
+      }
+      .test-layout .w-header, 
+      .test-layout .w-footer, 
+      .test-layout .w-sider,
+      .test-layout .w-content {
+        color: #fff;
+        text-align: center;
+      }
+      .test-layout .w-header, .test-layout .w-footer {
+        background: #7dbcea;
+      }
+      .test-layout .w-sider {
+        background-color: #3BA0E9;
+      }
+      .test-layout .w-content {
+        background-color: #1A8EE9;
+      }
     </style>
   </head>
   <body>
     <div id="app">
+      <w-layout class="test-layout">
+        <w-header>header</w-header>
+        <w-content>content</w-content>
+        <w-footer>footer</w-footer>
+      </w-layout>
+      <w-layout class="test-layout">
+        <w-header>header</w-header>
+        <w-layout>
+          <w-sider>sider</w-sider>
+          <w-content>content</w-content>
+        </w-layout>
+        <w-footer>footer</w-footer>
+      </w-layout>
+      <w-layout class="test-layout">
+        <w-sider>sider</w-sider>
+        <w-layout>
+          <w-header>header</w-header>
+          <w-content>content</w-content>
+          <w-footer>footer</w-footer>
+        </w-layout>
+      </w-layout>
       <div class="grid-wrapper">
         <w-row :gutter="10" justify="space-around" align="bottom">
           <w-col :span="3">
