@@ -10,6 +10,8 @@ import WHeader from './components/WHeader.vue'
 import WSider from './components/WSider.vue'
 import WContent from './components/WContent.vue'
 import WFooter from './components/WFooter.vue'
+import WMessage from './components/WMessage.vue'
+import pluginMessage from './plugins/message.js'
 
 Vue.component('w-button', WButton)
 Vue.component('w-icon', WIcon)
@@ -22,6 +24,8 @@ Vue.component('w-header', WHeader)
 Vue.component('w-sider', WSider)
 Vue.component('w-content', WContent)
 Vue.component('w-footer', WFooter)
+Vue.component('w-message', WMessage)
+Vue.use(pluginMessage)
 
 new Vue({
   el: '#app',
@@ -37,6 +41,9 @@ new Vue({
     },
     handleChange (event) {
       console.log('触发了 change 事件', event)
+    },
+    showMessage () {
+      this.$message('tesfdsfdsfdsfdsfdsst')
     }
   }
 })
